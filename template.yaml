@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: qbert-ingress-log
+Resources:
+    BluePeterCardSubmission:
+      Type: AWS::Serverless::Function
+      Properties:
+        Runtime: nodejs6.10
+        Handler: index.handler
+        Timeout: 15
+        Events:
+          Api:
+            Type: Api
+            Properties:
+              Path: /api/submit
+              Method: post
